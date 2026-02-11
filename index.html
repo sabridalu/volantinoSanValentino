@@ -36,12 +36,23 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Ottimizzazione per scroll su mobile */
+        /* Scrollbar personalizzata per le liste gusti */
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #fdf2f2;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #fda4af;
+          border-radius: 10px;
+        }
+
         section {
             overflow: hidden;
         }
 
-        /* Pulsanti touch-friendly */
         button, a {
             min-height: 44px;
             display: inline-flex;
