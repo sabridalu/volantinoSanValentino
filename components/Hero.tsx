@@ -1,19 +1,33 @@
 
 import React from 'react';
+import { Leaf } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToProdotti = () => {
     const element = document.getElementById('prodotti');
-    if(element) window.scrollTo({ top: element.offsetTop - 70, behavior: 'smooth' });
+    if(element) {
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
   };
 
   return (
     <section className="relative min-h-[85vh] md:min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-rose-50/30">
       <div className="container mx-auto px-6 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         <div className="space-y-8 md:space-y-10 fade-in text-center lg:text-left order-2 lg:order-1">
-          <div className="flex items-center gap-4 justify-center lg:justify-start">
-            <span className="w-10 md:w-14 h-[1px] bg-rose-200"></span>
-            <span className="text-[11px] md:text-xs tracking-[0.4em] text-rose-400 uppercase font-bold">Valentine's Collection</span>
+          <div className="flex flex-col md:flex-row items-center gap-4 justify-center lg:justify-start">
+            <div className="flex items-center gap-3">
+              <span className="w-10 md:w-14 h-[1px] bg-rose-200"></span>
+              <span className="text-[11px] md:text-xs tracking-[0.4em] text-rose-400 uppercase font-bold">Valentine's Collection</span>
+            </div>
+            <div className="flex items-center gap-2 bg-rose-100/50 px-3 py-1 rounded-full border border-rose-200">
+               <Leaf size={12} className="text-rose-600" />
+               <span className="text-[9px] font-bold text-rose-600 uppercase tracking-tighter">Senza Glutine & Lattosio Disp.</span>
+            </div>
           </div>
           
           <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl text-rose-900 leading-[1.1] italic">
